@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" href="../css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이창민의 유니버스</title>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+  <h1 class="fade-in-title">이창민의 유니버스 🚀</h1>
+  <p>프로필, 학습 내용, 여행 기록을 모아둔 정보성 페이지입니다.</p>
+</header>
+
+<nav>
+  <h2>📌 바로가기 메뉴</h2>
+  <ul>
+    <li><a href="myProfile.html">🦖소개 (Profile)</a></li>
+    <li><a href="myClass.html">📖수업 시간표 (Class)</a></li>
+    <li><a href="myHoliday.html">🫠휴일 계획 (Holiday)</a></li>
+    <li><a href="myTrip.html">💿여행 앨범 (Album)</a></li>
+    <li><a href="signUp.html">🌟 회원가입 (Sign Up)</a></li>
+  </ul>
+</nav>
+
+<hr>
+
+<div class="content-layout">
+
+<main>
+  <h2>⭐ 오늘의 주요 소식</h2>
+
+  <h3>최근 공지 및 업데이트</h3>
+  <p>
+    2026년 7월 16일 - 월드컵 준결승전이 열렸습니다. 메시의 아르헨티나와 해리 케인의 잉글랜드가 치열한 접전 끝에 아르헨티나가 결승으로 올라갑니다. <br>
+  </p>
+  <p>작성일자: 2026년 7월 16일</p>
+
+  <h3>📷 이 달의 핫이슈</h3>
+  <figure>
+    <picture>
+        <source media="(min-width:1024px)" srcset="../media/messi.jpg">
+      <source media="(min-width:600px)" srcset="../media/messi.jpg">
+      <img src="../media/messi.jpg" alt="월드컵 결승을 앞두고 희비가 교차되는 두 에이스" width="500">
+    </picture>
+    <figcaption style="text-align: center;">월드컵 결승을 앞두고 희비가 교차되는 두 에이스 (2026년 7월 16일)</figcaption>
+  </figure>
+
+  <h3>😍이 달의 인물 </h3>
+  <figure>
+    <picture>
+        <source media="(min-width:1024px)" srcset="../media/rsn.jpg">
+      <source media="(min-width:600px)" srcset="../media/rsn.jpg">
+      <img src="../media/rsn.jpg" alt="오늘 촬영한 풍경 사진" width="500">
+    </picture>
+    <figcaption style="text-align: center;">리센느</figcaption>
+  </figure>
+</main>
+
+<aside>
+  <h2>📍 실시간 정보</h2>
+  <p>현재 위치: 광주광역시 광산구 📍</p>
+  <p>추천 영상: <a href="https://www.youtube.com/watch?v=zrDb01mYM5I" target="_blank"> 아르헨티나 vs 잉글랜드 월드컵 준결승</a></p>
+
+  <section>
+    <h2>🎮 Up-Down 숫자 맞추기 게임</h2>
+    <p>1 ~ 50까지 숫자 중 컴퓨터가 생각한 숫자는 무엇일까요? </p>
+    <button type="button" onclick="startUpDownGame()">게임 시작하기</button>
+  </section>
+
+  <section>
+    <h2>📝 성적 계산기</h2>
+    <p>HTML, CSS, JavaScript 3과목 점수를 입력하면 평균과 합격 여부, 등급을 알려드려요.</p>
+    <button type="button" onclick="startGradeCheck()">채점 시작하기</button>
+  </section>
+
+  <section>
+    <h2>🎒 내 가방 보기</h2>
+    <p>가방 안에 어떤 물건들이 들어있을까요???</p>
+    <button type="button" onclick="showMyBag()">가방 열어보기</button>
+    <ul id="bagList"></ul>
+  </section>
+
+  <section>
+    <h2>🌤️ 도시 날씨 (좌표 미리보기)</h2>
+    <p>도시를 선택하면 위도/경도가 표시됩니다. (날씨 연동 전 단계)</p>
+    <label for="citySelect">도시 선택: </label>
+    <select id="citySelect">
+      <option value="">- 도시를 선택하세요 -</option>
+      <option value="0">서울</option>
+      <option value="1">부산</option>
+      <option value="2">광주</option>
+      <option value="3">인천</option>
+      <option value="4">제주</option>
+    </select>
+    <div id="weather-box">
+      <p>도시를 선택해주세요.</p>
+    </div>
+  </section>
+</aside>
+
+</div>
+
+<hr>
+
+<footer>
+  <p>이메일 문의: <a href="mailto:changmin812@gmail.com">changmin812@gmail.com</a></p>
+</footer>
+
+</div>
+
+<script src="../script/upDown.js"></script>
+<script src="../script/grade.js"></script>
+<script src="../script/bag.js"></script>
+<script type="module" src="../script/realtimeInfo.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,455 @@
+/* ==========================================================
+   style.css
+   미션: 태그 선택자 & 클래스 선택자로 전체 페이지 기본 디자인 다듬기
+   ========================================================== */
+
+/* 1) 구글 폰트 불러오기
+   - <link> 태그로 HTML의 <head>에서 폰트를 불러오는 방식 사용
+     (아래 CSS는 그 폰트를 font-family로 지정만 함)
+   - 사용 폰트: Nanum Myeongjo (전체 공통) */
+
+
+/* 2) 전체 글꼴 + 3) 줄간격 / 글자색 / 배경색
+   - body 태그 선택자 하나로 사이트 전체에 공통 적용됨 */
+body {
+  font-family: 'Nanum Myeongjo', serif;
+  line-height: 1.7;           /* 줄간격 */
+  color: #333333;             /* 기본 글자색 */
+  background-color: #fdfaf6;  /* 은은한 배경색 */
+  margin: 0;
+  padding: 20px;
+}
+
+
+/* 4) 제목 강조: h1, h2 태그 선택자 */
+h1 {
+  font-family: 'Nanum Myeongjo', serif;
+  color: #2c3e50;
+  font-size: 2.2rem;
+  padding: 12px 16px;
+  border-left: 6px solid #ff8c42;   /* 왼쪽 포인트 라인 */
+  background-color: #fff3e9;
+  border-radius: 4px;
+}
+
+h2 {
+  font-family: 'Nanum Myeongjo', serif;
+  color: #34495e;
+  font-size: 1.5rem;
+  padding-bottom: 6px;
+  border-bottom: 3px solid #ff8c42; /* 아래쪽 밑줄 */
+  display: inline-block;
+}
+
+
+/* 5) 링크 스타일: a 태그 선택자 */
+a {
+  color: #ff6b35;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+/* ==========================================================
+   박스 모델 미션: width, padding, margin, border
+   ========================================================== */
+
+/* 1) container: 모든 컨텐츠를 가운데 정렬 + 박스모델 시각화
+   - width  : 콘텐츠 영역의 너비
+   - padding: 콘텐츠와 테두리 사이 안쪽 여백
+   - border : 테두리
+   - margin : auto로 좌우 여백을 동일하게 줘서 가운데 정렬 */
+.container {
+  width: 100%;
+  max-width: 960px;           /* 콘텐츠 폭이 넓어지는 페이지가 있어 최대폭으로 확장 */
+  margin: 0 auto;             /* 좌우 margin auto → 가운데 정렬 */
+  padding: 24px 32px;         /* 안쪽 여백 */
+  border: 1px solid #e6ddd2;  /* 테두리 */
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-sizing: border-box;     /* padding/border를 width 안에 포함시켜 계산 */
+}
+
+
+/* 2) myTrip.html: 여행지 리뷰 카드
+   - 각 <p class="trip-card"> 하나하나가 독립된 카드처럼 보이도록
+     배경색 + 테두리 + padding(안쪽 여백) + margin(카드 간 바깥 여백) 적용 */
+.trip-card {
+  background-color: #fff8f0;
+  border: 1px solid #ffd8b0;
+  border-left: 5px solid #ff8c42;  /* 포인트 강조 */
+  border-radius: 6px;
+  padding: 16px 20px;      /* 카드 안쪽 여백 */
+  margin: 16px 0;          /* 카드와 카드 사이 바깥 여백 */
+  box-sizing: border-box;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trip-card:hover {
+  transform: translateY(-8px);              /* 살짝 떠오르는 효과 */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);  /* 그림자 진해짐 */
+  cursor: pointer;
+}
+
+.trip-card img {
+  display: block;
+  border-radius: 4px;
+}
+
+.trip-card figcaption {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #b35c1e;
+}
+
+
+/* 3) myClass.html: 깔끔한 테이블 */
+table {
+  width: 100%;
+  border-collapse: collapse;   /* 셀 사이 이중선 제거 */
+  margin: 20px 0;
+}
+
+caption {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #2c3e50;
+}
+
+th, td {
+  border: 1px solid #e0d6c8;
+  padding: 10px 14px;    /* 셀 안쪽 여백 */
+  text-align: center;
+}
+
+thead th {
+  background-color: #ff8c42;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+tbody th {
+  background-color: #fff3e9;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #fdfaf6;  /* 짝수행 줄무늬 */
+}
+
+tbody tr:hover {
+  background-color: #ffe9d6;  /* 마우스 올릴 때 강조 */
+}
+
+
+
+/* ==========================================================
+   폼 스타일링: input, fieldset, button
+   ========================================================== */
+
+/* 1) 입력창 크기 키우기
+   - text, password, date, textarea, select 공통 적용 */
+input[type="text"],
+input[type="password"],
+input[type="date"],
+select,
+textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 10px 12px;      /* 입력창 안쪽 여백 → 체감 크기 커짐 */
+  margin: 4px 0;
+  border: 1px solid #d8cdbf;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 280px;
+}
+
+textarea {
+  width: 100%;
+  max-width: 500px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #ff8c42;
+  box-shadow: 0 0 0 2px rgba(255, 140, 66, 0.2);
+}
+
+/* 라디오/체크박스는 살짝 크게 */
+input[type="radio"],
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+
+/* 2) fieldset 그룹 테두리 다듬기 */
+fieldset {
+  border: 1px solid #e6ddd2;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 20px 0;
+  background-color: #fffdfa;
+}
+
+legend {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #ff8c42;
+  padding: 0 10px;
+}
+
+fieldset p {
+  margin: 14px 0;
+}
+
+fieldset label {
+  font-weight: 500;
+}
+
+
+/* 3) 버튼 꾸미기 */
+input[type="submit"],
+input[type="reset"],
+button {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 22px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.2s ease;
+}
+
+button {
+  background-color: #ff8c42;
+  color: #ffffff;
+}
+
+button:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+input[type="submit"] {
+  background-color: #ff8c42;
+  color: #ffffff;
+}
+
+input[type="reset"] {
+  background-color: #eeeeee;
+  color: #555555;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+
+
+/* ==========================================================
+   레이아웃 미션: Flexbox & Grid
+   ========================================================== */
+
+/* 1) index.html: 바로가기 메뉴 - Flexbox */
+nav ul {
+  display: flex;             /* 세로 나열 → 가로 나열 */
+  flex-wrap: nowrap;         /* 무조건 한 줄 유지 */
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+nav ul li {
+  flex: 1;              /* 5개가 폭을 균등하게 나눠 가짐 */
+  min-width: 0;          /* 내부 텍스트가 넘치지 않도록 */
+}
+
+nav ul li a {
+  display: block;
+  text-align: center;
+  padding: 8px 6px;
+  background-color: #fff3e9;
+  border: 1px solid #ffd8b0;
+  border-radius: 20px;       /* 알약(pill) 모양 버튼 느낌 */
+  color: #b35c1e;
+  font-weight: 500;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;   /* 폭이 부족하면 "..."으로 축약 */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+nav ul li a:hover {
+  background-color: #ff8c42;
+  color: #ffffff;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+
+/* 1) index.html: main과 aside 가로 배치 - Flexbox
+   - HTML에서 main, aside를 <div class="content-layout">으로 묶어야 함 */
+.content-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.content-layout main {
+  flex: 2;         /* 넓은 영역 */
+  min-width: 0;    /* 내부 콘텐츠(이미지 등) 넘침 방지 */
+}
+
+.content-layout aside {
+  flex: 1;         /* 좁은 영역 */
+  background-color: #fffdfa;
+  border: 1px solid #e6ddd2;
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+
+/* 화면이 좁아지면 세로로 다시 쌓이도록 */
+@media (max-width: 786px) {
+  .content-layout {
+    flex-direction: column;
+  }
+
+  nav ul {
+    flex-direction: column;   /* 바로가기 메뉴도 1열로 */
+  }
+
+  nav ul li {
+    flex: none;
+  }
+
+  nav ul li a {
+    display: block;           /* 가로폭을 꽉 채워 터치하기 쉽게 */
+    text-align: center;
+    font-size: 1rem;          /* 모바일에서는 다시 읽기 편한 크기로 */
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+}
+
+
+/* 2) myTrip.html: 여행지 카드 3열 바둑판 배치 - Grid
+   - HTML에서 trip-card들을 <div class="trip-gallery">로 묶어야 함 */
+.trip-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 3열 */
+  gap: 20px;
+}
+
+.trip-gallery .trip-card {
+  margin: 0;         /* grid의 gap이 간격을 담당하므로 개별 margin 제거 */
+  height: 100%;
+}
+
+.trip-gallery .trip-card img {
+  width: 100%;        /* 카드 폭에 맞춰 이미지 채움 */
+  height: auto;
+}
+
+/* 화면이 좁아지면 3열 → 1열로 (모바일에서 카드가 찌그러지지 않도록) */
+@media (max-width: 786px) {
+  .trip-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* ==========================================================
+   등장 애니메이션: index.html 헤더 타이틀 페이드인
+   ========================================================== */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-title {
+  animation: fadeInDown 1s ease-out;
+}
+
+
+#bagList {
+  list-style: none;
+  padding: 0;
+  margin-top: 12px;
+}
+
+#bagList li {
+  background-color: #fff3e9;
+  border: 1px solid #ffd8b0;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+}
+
+
+#weather-box {
+  background-color: #fff3e9;
+  border: 1px solid #ffd8b0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-top: 10px;
+}
+
+#weather-box p {
+  margin: 4px 0;
+}
+
+
+figure {
+  text-align: center;
+}
+
+figcaption {
+  text-align: center;
+  margin-top: 6px;
+  color: #555555;
+}
+
+/* video, audio는 기본적으로 inline 요소라 앞의 h2(inline-block)와
+   같은 줄에 배치되면서 순서가 뒤바뀐 것처럼 보일 수 있음 → block으로 강제 */
+video,
+audio {
+  display: block;
+  margin: 12px auto;
+  max-width: 100%;
+}
+
+
+/* 참고) 클래스 선택자 예시
+   - 특정 요소만 골라서 꾸미고 싶을 때는 class를 사용합니다.
+   - HTML에서 class="highlight" 처럼 지정 후 아래 스타일 적용 */
+.highlight {
+  background-color: #fff59d;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
